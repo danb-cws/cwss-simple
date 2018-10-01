@@ -1,0 +1,26 @@
+@import url(normalize.css);
+html {
+  font: 16px Sans-serif;
+  color: #222;
+  background-color: #fff; }
+
+body {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 700px; }
+
+.header-primary {
+  color: #7c7c7c;
+  background-color: #e1e1e1;
+  padding: 0.61805rem 1rem; }
+
+.footer-primary {
+  color: #e1e1e1;
+  background-color: #7c7c7c;
+  padding: 0.61805rem 1rem; }
+
+.feature {
+  display: inline-block;
+  width: 50%; }
+
+/*# sourceMappingURL=style.css.map */

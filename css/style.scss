@@ -1,0 +1,53 @@
+@import "normalize.css";
+
+//dimensions
+$base-font-size: 16px;
+$max-content-width: 700px;
+$golden-ratio: 1.618;
+$primary-horiz-gutter: 1rem;
+$primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
+
+//font
+$font-family: Sans-serif;
+$heading-1-size: 2rem;
+$heading-2-size: 1.4rem;
+
+//colours
+$primary-color: #222;
+$primary-bg-color: #fff;
+$secondary-color: #7c7c7c;
+$secondary-bg-color: #e1e1e1;
+$tertiary-color: #e1e1e1;
+$tertiary-bg-color: #7c7c7c;
+
+//basics
+html {
+  font: $base-font-size $font-family;
+  color: $primary-color;
+  background-color: $primary-bg-color;
+}
+body {
+  margin: 0 auto;
+  padding: 0 $primary-horiz-gutter;
+  max-width: $max-content-width;
+}
+
+//header
+.header-primary {
+  color: $secondary-color;
+  background-color: $secondary-bg-color;
+  padding: $primary-vert-gutter $primary-horiz-gutter;
+}
+
+//footer
+.footer-primary {
+  color: $tertiary-color;
+  background-color: $tertiary-bg-color;
+  padding: $primary-vert-gutter $primary-horiz-gutter;
+}
+
+// feature blocks
+.feature {
+  display: inline-block;
+  width: 50%;
+}
