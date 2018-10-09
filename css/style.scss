@@ -6,6 +6,8 @@ $max-content-width: 700px;
 $golden-ratio: 1.618;
 $primary-horiz-gutter: 1rem;
 $primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
+$secondary-horiz-gutter: $primary-horiz-gutter / 3;
+$secondary-vert-gutter: $secondary-horiz-gutter / $golden-ratio;
 
 //font
 $font-family: Sans-serif;
@@ -38,6 +40,14 @@ body {
   background-color: $secondary-bg-color;
   padding: $primary-vert-gutter $primary-horiz-gutter;
 }
+.heading1 {
+  font-size: $heading-1-size;
+  margin-bottom: 0;
+}
+.heading2 {
+  font-size: $heading-2-size;
+  margin-bottom: 0;
+}
 
 //footer
 .footer-primary {
@@ -50,4 +60,19 @@ body {
 .feature {
   display: inline-block;
   width: 50%;
+}
+
+// brand list
+.brand-list {
+  list-style: none;
+  font-size: 0.825rem;
+  border: 1px solid $tertiary-color;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+.brand-list-item {
+  flex-basis: 20%;
+  padding: $secondary-vert-gutter $secondary-horiz-gutter;
 }
