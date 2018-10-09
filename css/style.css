@@ -14,6 +14,14 @@ body {
   background-color: #e1e1e1;
   padding: 0.61805rem 1rem; }
 
+.heading1 {
+  font-size: 2rem;
+  margin-bottom: 0; }
+
+.heading2 {
+  font-size: 1.4rem;
+  margin-bottom: 0; }
+
 .footer-primary {
   color: #e1e1e1;
   background-color: #7c7c7c;
@@ -23,4 +31,15 @@ body {
   display: inline-block;
   width: 50%; }
 
-/*# sourceMappingURL=style.css.map */
+.brand-list {
+  list-style: none;
+  font-size: 0.825rem;
+  border: 1px solid #e1e1e1;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0; }
+
+.brand-list-item {
+  flex-basis: 20%;
+  padding: 0.20602rem 0.33333rem; }
