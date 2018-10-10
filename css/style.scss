@@ -42,7 +42,7 @@ body {
 }
 .heading1 {
   font-size: $heading-1-size;
-  margin-bottom: 0;
+  margin: 0;
 }
 .heading2 {
   font-size: $heading-2-size;
@@ -59,7 +59,15 @@ body {
 // feature blocks
 .feature {
   display: inline-block;
+  vertical-align: top;
   width: 50%;
+}
+.feature__list {
+  list-style: none;
+  padding-left: 0;
+}
+.feature__list-item {
+  margin-bottom: $primary-horiz-gutter;
 }
 
 // brand list
