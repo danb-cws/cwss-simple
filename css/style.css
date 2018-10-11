@@ -7,7 +7,7 @@ html {
 body {
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 700px; }
+  max-width: 1200px; }
 
 .header-primary {
   color: #7c7c7c;
@@ -21,6 +21,10 @@ body {
 .heading2 {
   font-size: 1.4rem;
   margin-bottom: 0; }
+
+.heading3 {
+  font-size: 1rem;
+  font-weight: 700; }
 
 .footer-primary {
   color: #e1e1e1;

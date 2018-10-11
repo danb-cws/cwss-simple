@@ -2,7 +2,7 @@
 
 //dimensions
 $base-font-size: 16px;
-$max-content-width: 700px;
+$max-content-width: 1200px;
 $golden-ratio: 1.618;
 $primary-horiz-gutter: 1rem;
 $primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
@@ -13,6 +13,7 @@ $secondary-vert-gutter: $secondary-horiz-gutter / $golden-ratio;
 $font-family: Sans-serif;
 $heading-1-size: 2rem;
 $heading-2-size: 1.4rem;
+$heading-3-size: 1rem;
 
 //colours
 $primary-color: #222;
@@ -47,6 +48,10 @@ body {
 .heading2 {
   font-size: $heading-2-size;
   margin-bottom: 0;
+}
+.heading3 {
+  font-size: $heading-3-size;
+  font-weight: 700;
 }
 
 //footer
