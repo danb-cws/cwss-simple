@@ -61,8 +61,10 @@ body {
   display: inline-block;
   vertical-align: top;
   width: 50%;
+  font-size: 0;
 }
 .feature__list {
+  font-size: $base-font-size;
   list-style: none;
   padding-left: 0;
 }
