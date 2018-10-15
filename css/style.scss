@@ -3,6 +3,8 @@
 //dimensions
 $base-font-size: 16px;
 $max-content-width: 1200px;
+$breakpoint-large: 700px;
+
 $golden-ratio: 1.618;
 $primary-horiz-gutter: 1rem;
 $primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
@@ -34,7 +36,9 @@ body {
   padding: 0 $primary-horiz-gutter;
   max-width: $max-content-width;
 }
-
+* {
+  box-sizing: border-box;
+}
 //header
 .header-primary {
   color: $secondary-color;
@@ -61,15 +65,27 @@ body {
   padding: $primary-vert-gutter $primary-horiz-gutter;
 }
 
-// feature blocks
+// feature blocks pair
 .feature {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-  font-size: 0;
+}
+// split pair 50/50 without a wrapping element to clearfix
+@media screen and (min-width: $breakpoint-large) {
+  .feature {
+    width: 50%;
+  }
+  .feature:nth-child(odd) {
+    float: left;
+    padding-right: calc(#{$primary-horiz-gutter} / 2);
+  }
+  .feature:nth-child(even) {
+    float: right;
+    padding-left: calc(#{$primary-horiz-gutter} / 2);
+  }
+  .feature + *:not(.feature) {
+    clear: both;
+  }
 }
 .feature__list {
-  font-size: $base-font-size;
   list-style: none;
   padding-left: 0;
 }

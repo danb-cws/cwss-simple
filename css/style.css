@@ -9,6 +9,9 @@ body {
   padding: 0 1rem;
   max-width: 1200px; }
 
+* {
+  box-sizing: border-box; }
+
 .header-primary {
   color: #7c7c7c;
   background-color: #e1e1e1;
@@ -31,14 +34,19 @@ body {
   background-color: #7c7c7c;
   padding: 0.61805rem 1rem; }
 
-.feature {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-  font-size: 0; }
+@media screen and (min-width: 700px) {
+  .feature {
+    width: 50%; }
+  .feature:nth-child(odd) {
+    float: left;
+    padding-right: calc(1rem / 2); }
+  .feature:nth-child(even) {
+    float: right;
+    padding-left: calc(1rem / 2); }
+  .feature + *:not(.feature) {
+    clear: both; } }
 
 .feature__list {
-  font-size: 16px;
   list-style: none;
   padding-left: 0; }
 
