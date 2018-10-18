@@ -1,38 +1,84 @@
 @import url(normalize.css);
+* {
+  box-sizing: border-box; }
+
 html {
-  font: 16px Sans-serif;
+  font: 16px Open Sans, system-ui, BlinkMacSystemFont, Roboto, sans-serif;
   color: #222;
   background-color: #fff; }
 
 body {
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 1200px; }
+  max-width: 1000px; }
 
-* {
-  box-sizing: border-box; }
+a,
+a:link,
+a:visited {
+  color: #222; }
 
-.header-primary {
-  color: #7c7c7c;
-  background-color: #e1e1e1;
-  padding: 0.61805rem 1rem; }
+a:hover {
+  color: #7c7c7c; }
+
+p {
+  margin-top: 0; }
 
 .heading1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: calc(1.6rem * 1.15);
   margin: 0; }
 
 .heading2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-bottom: 0; }
 
 .heading3 {
   font-size: 1rem;
   font-weight: 700; }
 
+.header-primary {
+  color: #7c7c7c;
+  background-color: #e1e1e1;
+  min-height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0.61805rem; }
+  .header-primary::after {
+    content: '';
+    background-color: #e1e1e1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    z-index: -1; }
+
 .footer-primary {
   color: #e1e1e1;
   background-color: #7c7c7c;
-  padding: 0.61805rem 1rem; }
+  min-height: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .footer-primary::after {
+    content: '';
+    background-color: #7c7c7c;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2.4rem;
+    z-index: -1; }
+
+.footer-link {
+  float: right;
+  text-decoration: none;
+  color: #e1e1e1; }
+  .footer-link:visited {
+    color: #e1e1e1; }
+  .footer-link:hover {
+    color: #fff;
+    text-decoration: underline; }
 
 @media screen and (min-width: 700px) {
   .feature {
@@ -48,7 +94,8 @@ body {
 
 .feature__list {
   list-style: none;
-  padding-left: 0; }
+  padding-left: 0;
+  margin-top: 0.61805rem; }
 
 .feature__list-item {
   margin-bottom: 1rem; }
@@ -57,11 +104,10 @@ body {
   list-style: none;
   font-size: 0.825rem;
   border: 1px solid #e1e1e1;
-  display: flex;
-  flex-wrap: wrap;
   margin: 0;
   padding: 0; }
 
 .brand-list-item {
-  flex-basis: 20%;
+  display: inline-block;
+  vertical-align: top;
   padding: 0.20602rem 0.33333rem; }
