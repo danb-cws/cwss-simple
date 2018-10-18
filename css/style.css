@@ -111,3 +111,13 @@ p {
   display: inline-block;
   vertical-align: top;
   padding: 0.20602rem 0.33333rem; }
+
+.intro {
+  position: relative; }
+  .intro:after {
+    content: '';
+    width: 300px;
+    height: 300px;
+    background-image: url(../img/danb-c2r.jpg);
+    position: absolute;
+    top: 30px; }

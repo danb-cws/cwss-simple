@@ -165,3 +165,17 @@ p {
   vertical-align: top;
   padding: $secondary-vert-gutter $secondary-horiz-gutter;
 }
+
+// mugshot on intro
+
+.intro {
+  position: relative;
+  &:after{
+    content:'';
+    width: 300px;
+    height: 300px;
+    background-image: url(../img/danb-c2r.jpg);
+    position: absolute;
+    top: 30px;
+  }
+}
