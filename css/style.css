@@ -5,11 +5,11 @@
 html {
   font: 16px Open Sans, system-ui, BlinkMacSystemFont, Roboto, sans-serif;
   color: #222;
-  background-color: #fff; }
+  background-color: #f7f7f7; }
 
 body {
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2em 1rem 0;
   max-width: 1000px; }
 
 a,
@@ -21,12 +21,13 @@ a:hover {
   color: #7c7c7c; }
 
 p {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: .6em; }
 
 .heading1 {
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: calc(1.6rem * 1.15);
+  line-height: 1.84rem;
   margin: 0; }
 
 .heading2 {
@@ -39,20 +40,25 @@ p {
 
 .header-primary {
   color: #7c7c7c;
-  background-color: #e1e1e1;
+  background-color: #d4d4d4;
   min-height: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 0.61805rem; }
+  margin-bottom: 0.61805rem;
+  margin-top: 8rem; }
   .header-primary::after {
     content: '';
-    background-color: #e1e1e1;
+    background-color: #d4d4d4;
     position: absolute;
     left: 0;
     right: 0;
     height: 4rem;
     z-index: -1; }
+
+@media print {
+  .header-primary {
+    margin-top: 0; } }
 
 .footer-primary {
   color: #e1e1e1;
@@ -77,18 +83,22 @@ p {
   .footer-link:visited {
     color: #e1e1e1; }
   .footer-link:hover {
-    color: #fff;
+    color: #f7f7f7;
     text-decoration: underline; }
+
+@media print {
+  .footer-link {
+    display: none; } }
 
 @media screen and (min-width: 700px) {
   .feature {
     width: 50%; }
   .feature:nth-child(odd) {
     float: left;
-    padding-right: calc(1rem / 2); }
+    padding-right: 0.5rem; }
   .feature:nth-child(even) {
     float: right;
-    padding-left: calc(1rem / 2); }
+    padding-left: 0.5rem; }
   .feature + *:not(.feature) {
     clear: both; } }
 
@@ -112,12 +122,20 @@ p {
   vertical-align: top;
   padding: 0.20602rem 0.33333rem; }
 
-.intro {
-  position: relative; }
-  .intro:after {
-    content: '';
-    width: 300px;
-    height: 300px;
-    background-image: url(../img/danb-c2r.jpg);
-    position: absolute;
-    top: 30px; }
+.intro__mugshot {
+  float: right;
+  margin-top: -12.61805rem;
+  right: 3em;
+  width: 20em;
+  height: 20em;
+  background-image: url(../img/danb-c2r.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1rem solid #d4d4d4;
+  shape-outside: circle() padding-box;
+  shape-margin: 1rem; }
+
+@media print {
+  .intro__mugshot {
+    margin-top: -4rem; } }
