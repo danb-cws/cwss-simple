@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import "normalize";
 
 //dimensions
 $base-font-size: 16px;
@@ -12,6 +12,7 @@ $primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
 $secondary-horiz-gutter: $primary-horiz-gutter / 3;
 $secondary-vert-gutter: $secondary-horiz-gutter / $golden-ratio;
 
+$circle-width: 20rem;
 $radial-width: $primary-horiz-gutter;
 
 $header-height: 4rem;
@@ -86,6 +87,10 @@ p {
   justify-content: center;
   margin-bottom: $primary-vert-gutter;
   margin-top: $header-topmargin;
+/*  @media screen and (max-width: $breakpoint-large) {
+    //margin-top: calc( ( (#{$header-topmargin / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+    margin-top: calc( ( (#{$header-topmargin / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+  }*/
   &::after {
     content: '';
     background-color: $secondary-bg-color;
@@ -132,16 +137,13 @@ p {
     color: $primary-bg-color;
     text-decoration: underline;
   }
-}
-@media print {
-  .footer-link {
+  @media print {
     display: none;
   }
 }
 
-// feature blocks pair
-.feature {
-}
+
+// feature blocks pair (would work with > 2)
 // split pair 50/50 without a wrapping element to clearfix
 @media screen and (min-width: $breakpoint-large) {
   .feature {
@@ -165,7 +167,7 @@ p {
   margin-top: $primary-vert-gutter;
 }
 .feature__list-item {
-  margin-bottom: $primary-horiz-gutter;
+  margin-bottom: $primary-vert-gutter;
 }
 
 // brand list
@@ -186,9 +188,20 @@ p {
 .intro__mugshot {
   float: right;
   margin-top: -($header-topmargin + $header-height + $primary-vert-gutter);
-  right: 3em;
-  width: 20em;
-  height: 20em;
+  @media screen and (max-width: $breakpoint-large) {
+    margin-top: calc( ( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 ) - #{($header-topmargin + $header-height + $primary-vert-gutter) / 1rem} ) * 1vw );
+    //margin-top: calc( ( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 ) + #{($header-topmargin + $header-height + $primary-vert-gutter) / -1rem} ) * 1vw );
+    //margin-top: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+  }
+  @media print {
+    margin-top: -$header-height;
+  }
+  width: $circle-width;
+  height: $circle-width;
+  @media screen and (max-width: $breakpoint-large) {
+    width: calc( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+    height: calc( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+  }
   background-image: url(../img/danb-c2r.jpg);
   -webkit-background-size: cover;
   background-size: cover;
@@ -196,9 +209,8 @@ p {
   border: $radial-width solid $secondary-bg-color;
   shape-outside: circle() padding-box;
   shape-margin: $radial-width;
-}
-@media print {
-  .intro__mugshot {
-    margin-top: -$header-height;
+  @media screen and (max-width: $breakpoint-large) {
+    border-width: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+    shape-margin: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
   }
 }
