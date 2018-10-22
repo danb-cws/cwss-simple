@@ -189,7 +189,9 @@ p {
   float: right;
   margin-top: -($header-topmargin + $header-height + $primary-vert-gutter);
   @media screen and (max-width: $breakpoint-large) {
-    margin-top: calc( ( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 ) - #{($header-topmargin + $header-height + $primary-vert-gutter) / 1rem} ) * 1vw );
+    //margin-top: calc( ( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 ) - #{($header-topmargin + $header-height + $primary-vert-gutter) / 1rem} ) * 1vw );
+    //margin-top: calc( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 )  * 1vw + #{($header-topmargin + $header-height + $primary-vert-gutter)} );
+    margin-top: calc( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 )  * 1vw   - 6.31805rem);
     //margin-top: calc( ( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 ) + #{($header-topmargin + $header-height + $primary-vert-gutter) / -1rem} ) * 1vw );
     //margin-top: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
   }
