@@ -10,7 +10,7 @@ $golden-ratio: 1.618;
 $line-height-multiplier: 1.15;
 $primary-horiz-gutter: 1.6rem;
 $primary-vert-gutter: $primary-horiz-gutter / $golden-ratio;
-$secondary-horiz-gutter: $primary-horiz-gutter / 3;
+$secondary-horiz-gutter: $primary-horiz-gutter / 2.4;
 $secondary-vert-gutter: $secondary-horiz-gutter / $golden-ratio;
 
 $circle-width: 20rem;
@@ -207,12 +207,12 @@ p {
   font-size: 0.825rem;
   border: 1px solid $tertiary-color;
   margin: 0;
-  padding: 0;
+  padding: $secondary-vert-gutter 0 0;
 }
 .brand-list-item {
   display: inline-block;
   vertical-align: top;
-  padding: $secondary-vert-gutter $secondary-horiz-gutter;
+  padding: 0 $secondary-horiz-gutter $secondary-vert-gutter;
 }
 
 .main-content {
