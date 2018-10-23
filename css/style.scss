@@ -83,7 +83,7 @@ p {
 //header
 .header-primary {
   color: $primary-color;
-  background-color: $secondary-bg-color;
+  //background-color: $secondary-bg-color;
   min-height: $header-height;
   display: flex;
   flex-direction: column;
@@ -104,6 +104,9 @@ p {
     right: 0;
     height: $header-height;
     z-index: -1;
+    @media screen and (max-width: $breakpoint-large) {
+      height: ( (($header-height / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw
+    }
   }
   & .heading1 {
     @media screen and (max-width: $breakpoint-large) {
