@@ -17,7 +17,7 @@ $circle-width: 20rem;
 $radial-width: $primary-horiz-gutter;
 
 $header-height: 4rem;
-$header-topmargin: ($header-height * 2);
+$header-topmargin: 8rem;
 $header-botmargin: $primary-vert-gutter;
 $footer-height: 2.4rem;
 
@@ -40,7 +40,8 @@ $link-color-hover: $secondary-color;
 
 //basics
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 html {
   font: $base-font-size $font-family;
@@ -85,9 +86,16 @@ p {
   color: $primary-color;
   //background-color: $secondary-bg-color;
   min-height: $header-height;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: $primary-vert-gutter;
   margin-top: $header-topmargin;
   @media screen and (max-width: $breakpoint-large) {
@@ -120,9 +128,16 @@ p {
   color: $tertiary-color;
   background-color: $tertiary-bg-color;
   min-height: $footer-height;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   &::after {
     content: '';
     background-color: $tertiary-bg-color;
@@ -219,7 +234,6 @@ p {
     height:  ( (($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) * 1vw;
   }
   background-image: url(../img/danb-c2r.jpg);
-  -webkit-background-size: cover;
   background-size: cover;
   border-radius: 50%;
   border: $radial-width solid $secondary-bg-color;
