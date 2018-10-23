@@ -4,6 +4,7 @@
 $base-font-size: 16px;
 $max-content-width: 1000px;
 $breakpoint-large: 700px;
+$breakpoint-small: 570px;
 
 $golden-ratio: 1.618;
 $line-height-multiplier: 1.15;
@@ -22,9 +23,9 @@ $footer-height: 2.4rem;
 
 //font
 $font-family: Open Sans,system-ui,BlinkMacSystemFont,Roboto,sans-serif;
-$heading-1-size: 1.6rem;
-$heading-2-size: 1.2rem;
-$heading-3-size: 1rem;
+$heading-1-size: 1.8rem;
+$heading-2-size: 1.2em;
+$heading-3-size: 1em;
 
 //colours
 $primary-color: #222;
@@ -48,7 +49,7 @@ html {
 }
 body {
   margin: 0 auto;
-  padding: 2em $primary-horiz-gutter 0;
+  padding: 2rem $primary-horiz-gutter 0;
   max-width: $max-content-width;
 }
 a,
@@ -67,6 +68,8 @@ p {
   font-size: $heading-1-size;
   font-weight: 400;
   line-height: $heading-1-size * $line-height-multiplier;
+  text-shadow: 1px 1px $primary-bg-color;
+  text-transform: lowercase;
   margin: 0;
 }
 .heading2 {
@@ -79,7 +82,7 @@ p {
 }
 //header
 .header-primary {
-  color: $secondary-color;
+  color: $primary-color;
   background-color: $secondary-bg-color;
   min-height: $header-height;
   display: flex;
@@ -87,10 +90,12 @@ p {
   justify-content: center;
   margin-bottom: $primary-vert-gutter;
   margin-top: $header-topmargin;
-/*  @media screen and (max-width: $breakpoint-large) {
-    //margin-top: calc( ( (#{$header-topmargin / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
-    margin-top: calc( ( (#{$header-topmargin / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
-  }*/
+  @media screen and (max-width: $breakpoint-large) {
+    margin-top: ( (($header-topmargin / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+  }
+  @media print {
+    margin-top: 0;
+  }
   &::after {
     content: '';
     background-color: $secondary-bg-color;
@@ -100,10 +105,10 @@ p {
     height: $header-height;
     z-index: -1;
   }
-}
-@media print {
-  .header-primary {
-    margin-top: 0;
+  & .heading1 {
+    @media screen and (max-width: $breakpoint-large) {
+      font-size: ( (($heading-1-size / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    }
   }
 }
 
@@ -184,13 +189,22 @@ p {
   padding: $secondary-vert-gutter $secondary-horiz-gutter;
 }
 
+.main-content {
+  @media screen and (max-width: $breakpoint-large) {
+    font-size: ( ($base-font-size / 1px)  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+  }
+  @media screen and (max-width: $breakpoint-small) {
+    font-size: 13px;
+  }
+}
+
 // mugshot on intro
 .intro__mugshot {
+  font-size: 1rem;
   float: right;
-  margin-top: -($header-topmargin + $header-height + $primary-vert-gutter);
+  margin-top: -(($circle-width / 2) + ($header-height / 2) + $primary-vert-gutter);
   @media screen and (max-width: $breakpoint-large) {
-    //margin-top: calc( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 )  * 1vw   - 2.540975rem);
-    margin-top: calc( ( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) / -2 )  * 1vw   - 2.540975rem);
+    margin-top: calc( #{((( ($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) / -2 )  * 1vw} - #{ ($header-height / 2rem) + $primary-vert-gutter });
   }
   @media print {
     margin-top: -$header-height;
@@ -198,8 +212,8 @@ p {
   width: $circle-width;
   height: $circle-width;
   @media screen and (max-width: $breakpoint-large) {
-    width: calc( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
-    height: calc( ( (#{$circle-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+    width:  ( (($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    height:  ( (($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) * 1vw;
   }
   background-image: url(../img/danb-c2r.jpg);
   -webkit-background-size: cover;
@@ -209,7 +223,7 @@ p {
   shape-outside: circle() padding-box;
   shape-margin: $radial-width;
   @media screen and (max-width: $breakpoint-large) {
-    border-width: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
-    shape-margin: calc( ( (#{$radial-width / 1rem} * #{$base-font-size / 1px} )  / (#{$breakpoint-large / 1px} / 100) ) * 1vw );
+    border-width: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    shape-margin: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
   }
 }
