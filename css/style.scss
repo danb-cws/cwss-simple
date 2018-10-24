@@ -17,7 +17,7 @@ $secondary-vert-gutter: $secondary-horiz-gutter / $golden-ratio;
 $header-height: 4rem;
 $header-topmargin: 8rem;
 $header-botmargin: $primary-vert-gutter;
-$footer-height: 2.4rem;
+$footer-height: 4rem;
 
 $circle-width: 20rem;
 $radial-width: $primary-horiz-gutter;
@@ -150,8 +150,7 @@ p {
 //footer
 .footer-primary {
   color: $tertiary-color;
-  height: $footer-height;
-  line-height: $footer-height;
+  min-height: $footer-height;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,8 +271,8 @@ p {
     border-width: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
     shape-margin: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
   }
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
+  -webkit-filter: grayscale(.6);
+  filter: grayscale(.6);
   transition: filter $short-time, -webkit-filter $short-time;
   &:hover {
     -webkit-filter: grayscale(0);
