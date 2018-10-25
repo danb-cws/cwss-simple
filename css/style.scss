@@ -208,6 +208,8 @@ p {
   padding: 0 $secondary-horiz-gutter $secondary-vert-gutter;
 }
 
+
+// fluid type
 .main-content {
   @media screen and (max-width: $breakpoint-large) {
     @include vw-units-at-bp(font-size, 1rem, $breakpoint-large);
@@ -234,8 +236,6 @@ p {
     @include vw-units-at-bp(width, $circle-width, $breakpoint-large);
     @include vw-units-at-bp(height, $circle-width, $breakpoint-large);
   }
-  background-image: url(../img/danb-c2r.jpg);
-  background-size: cover;
   border-radius: 50%;
   border: $radial-width solid $secondary-bg-color;
   shape-outside: circle() padding-box;
@@ -255,6 +255,7 @@ p {
 
 // contact icons list
 .contact__icons {
+  font-size: 1rem;
   position: absolute;
   top: $page-vert-space + $radial-width;
   @media screen and (max-width: $breakpoint-large) {
