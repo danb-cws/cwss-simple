@@ -188,7 +188,7 @@ p {
 .feature__list {
   list-style: none;
   padding-left: 0;
-  margin: 0;
+  margin: 0 0 $secondary-vert-gutter;
 }
 .feature__item {
   margin-bottom: $secondary-vert-gutter;
@@ -200,12 +200,12 @@ p {
   font-size: 0.825rem;
   background-color: $tertiary-color;
   margin: 0;
-  padding: $secondary-vert-gutter 0 0;
+  padding: $secondary-vert-gutter $secondary-horiz-gutter 0 0;
 }
 .brand-list__item {
   display: inline-block;
   vertical-align: top;
-  padding: 0 $secondary-horiz-gutter $secondary-vert-gutter;
+  padding: 0 0 $secondary-vert-gutter $secondary-horiz-gutter;
 }
 
 // fluid type
