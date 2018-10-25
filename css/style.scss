@@ -46,6 +46,26 @@ $link-color-hover: $secondary-color;
 //timing
 $short-time: 400ms;
 
+//mixins
+@mixin flexbox-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+      flex-direction: column;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+      justify-content: center;
+}
+
+// fluid type: vw eqiv units at a specific BP (assumes rem units for $item)
+@mixin vw-units-at-bp($prop, $item, $breakpoint){
+  #{$prop}: ( (($item / 1rem) * ($base-font-size / 1px))  / (($breakpoint / 1px) / 100) ) * 1vw;
+}
+
 //basics
 * {
   -webkit-box-sizing: border-box;
@@ -62,14 +82,17 @@ body {
   margin: 0 auto;
   padding: $page-vert-space $primary-horiz-gutter 0;
   @media screen and (max-width: $breakpoint-large) {
-    padding: ( (($page-vert-space / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw ( (($primary-horiz-gutter / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw 0;
+    @include vw-units-at-bp(padding-top, $page-vert-space, $breakpoint-large);
+    @include vw-units-at-bp(padding-right, $primary-horiz-gutter, $breakpoint-large);
+    padding-bottom: 0;
+    @include vw-units-at-bp(padding-left, $page-vert-space, $breakpoint-large);
   }
   max-width: $max-content-width;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
 a {
-    -webkit-transition: color $short-time;
+  -webkit-transition: color $short-time;
     transition: color $short-time;
 }
 a,
@@ -106,21 +129,11 @@ p {
 .header-primary {
   color: $secondary-color;
   height: $header-height;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  @include flexbox-center;
   margin-bottom: $primary-vert-gutter;
   margin-top: $header-topmargin;
   @media screen and (max-width: $breakpoint-large) {
-    margin-top: ( (($header-topmargin / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    @include vw-units-at-bp(margin-top, $header-topmargin, $breakpoint-large);
   }
   @media print {
     margin-top: 0;
@@ -133,16 +146,16 @@ p {
     right: -100%;
     top: 50%;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+      transform: translateY(-50%);
     height: $header-height;
     z-index: -1;
     @media screen and (max-width: $breakpoint-large) {
-      height: ( (($header-height / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw
+      @include vw-units-at-bp(height, $header-height, $breakpoint-large);
     }
   }
-  & .heading1 {
+  .heading1 {
     @media screen and (max-width: $breakpoint-large) {
-      font-size: ( (($heading-1-size / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+      @include vw-units-at-bp(font-size, $heading-1-size, $breakpoint-large);
     }
   }
 }
@@ -153,20 +166,14 @@ p {
   margin-top: $footer-height;
   height: $footer-height;
   line-height: $footer-height;
-  & small {
+  small {
     line-height: 1em;
   }
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  @include flexbox-center;
   &::before {
     content: '';
     background-color: $tertiary-bg-color;
@@ -175,7 +182,7 @@ p {
     right: -100%;
     top: 50%;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+      transform: translateY(-50%);
     height: $footer-height;
     z-index: -1;
   }
@@ -246,7 +253,7 @@ p {
 
 .main-content {
   @media screen and (max-width: $breakpoint-large) {
-    font-size: ( ($base-font-size / 1px)  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    @include vw-units-at-bp(font-size, 1rem, $breakpoint-large);
   }
   @media screen and (max-width: $breakpoint-small) {
     font-size: 13px;
@@ -267,8 +274,8 @@ p {
   width: $circle-width;
   height: $circle-width;
   @media screen and (max-width: $breakpoint-large) {
-    width:  ( (($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) * 1vw;
-    height:  ( (($circle-width / 1rem) * ($base-font-size / 1px) )  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    @include vw-units-at-bp(width, $circle-width, $breakpoint-large);
+    @include vw-units-at-bp(height, $circle-width, $breakpoint-large);
   }
   background-image: url(../img/danb-c2r.jpg);
   background-size: cover;
@@ -277,8 +284,8 @@ p {
   shape-outside: circle() padding-box;
   shape-margin: $radial-width;
   @media screen and (max-width: $breakpoint-large) {
-    border-width: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
-    shape-margin: ( (($radial-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw;
+    @include vw-units-at-bp(border-width, $radial-width, $breakpoint-large);
+    @include vw-units-at-bp(shape-margin, $radial-width, $breakpoint-large);
   }
   -webkit-filter: grayscale(.6);
   filter: grayscale(.6);
@@ -294,11 +301,10 @@ p {
   position: absolute;
   top: $page-vert-space + $radial-width;
   @media screen and (max-width: $breakpoint-large) {
-    top: ( ((($page-vert-space + $radial-width) / 1rem) * ($base-font-size / 1px))  / (($breakpoint-large / 1px) / 100) ) * 1vw ;
+    @include vw-units-at-bp(top, $page-vert-space + $radial-width, $breakpoint-large);
   }
   height: $primary-icon-width;
   list-style: none;
-  font-size: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -309,9 +315,9 @@ p {
   width: $primary-icon-width;
   height: $primary-icon-width;
   @media screen and (max-width: $breakpoint-tiny) {
-    width: ( (($primary-icon-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-tiny / 1px) / 100) ) * 1vw;
-    height: ( (($primary-icon-width / 1rem) * ($base-font-size / 1px))  / (($breakpoint-tiny / 1px) / 100) ) * 1vw;
-    padding-right: ( (($secondary-horiz-gutter / 1rem) * ($base-font-size / 1px))  / (($breakpoint-tiny / 1px) / 100) ) * 1vw;
+    @include vw-units-at-bp(width, $primary-icon-width, $breakpoint-tiny);
+    @include vw-units-at-bp(height, $primary-icon-width, $breakpoint-tiny);
+    @include vw-units-at-bp(padding-right, $secondary-horiz-gutter, $breakpoint-tiny);
   }
 }
 .contact__icon {
