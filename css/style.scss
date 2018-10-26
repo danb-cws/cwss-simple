@@ -88,6 +88,7 @@ body {
     @include vw-units-at-bp(padding-left, $primary-horiz-gutter, $breakpoint-large);
   }
   max-width: $max-content-width;
+  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
