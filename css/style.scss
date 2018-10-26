@@ -2,7 +2,7 @@
 
 //dimensions
 $base-font-size: 16px;
-$max-content-width: 1000px;
+$max-content-width: 1024px;
 $breakpoint-large: 700px;
 $breakpoint-small: 570px;
 $breakpoint-tiny: 430px;
@@ -75,6 +75,7 @@ html {
   line-height: 1.4;
   color: $primary-color;
   background-color: $primary-bg-color;
+  overflow-x: hidden;
 }
 body {
   margin: 0 auto;
@@ -86,7 +87,9 @@ body {
     @include vw-units-at-bp(padding-left, $primary-horiz-gutter, $breakpoint-large);
   }
   max-width: $max-content-width;
-  overflow-x: hidden;
+  @media screen and (max-width: $max-content-width) {
+    overflow-x: hidden;
+  }
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -305,9 +308,7 @@ p {
     position: absolute;
     left: -100%;
     right: -100%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
+    top: 0;
     height: 100%;
     z-index: -1;
   }
