@@ -221,8 +221,8 @@ p {
   }
 }
 
-// mugshot on intro
-.intro__mugshot {
+// mugshot in intro (image should be inside .intro semantically, but the margin-top negative offset is tied to .header-primary)
+.header-primary__mugshot {
   font-size: 1rem;
   float: right;
   margin-top: -(($circle-width / 2) + ($header-height / 2) + $primary-vert-gutter);
