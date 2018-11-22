@@ -240,6 +240,7 @@ p {
   }
   border-radius: 50%;
   border: $radial-width solid $secondary-bg-color;
+  background-color: $secondary-bg-color;
   shape-outside: circle() padding-box;
   shape-margin: $radial-width;
   @media screen and (max-width: $breakpoint-large) {
